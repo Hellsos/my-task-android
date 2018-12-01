@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#262938</color>
+    <color name="colorPrimaryDark">#181A24</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorWelcomePrimary">#262938</color>
+    <color name="colorWelcomePrimaryDark">#181A24</color>
+    <color name="colorWelcomeAccent">#FF4081</color>
+    <color name="colorWelcomeWhite">#DDD</color>
+    <color name="colorWelcomeTransparentWhite">#AAA</color>
+    <color name="colorWelcomeDisabled">#555</color>
+</resources>
