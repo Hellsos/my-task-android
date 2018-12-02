@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import cloud.my_task.mytaskandroid.fragment.AboutFragment
+import cloud.my_task.mytaskandroid.fragment.DashboardFragment
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.app_bar_dashboard.*
 
@@ -30,6 +32,11 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        if(savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.frame_container, DashboardFragment()).commit()
+            nav_view.setCheckedItem(R.id.nav_dashboard)
+        }
     }
 
     override fun onBackPressed() {
@@ -59,23 +66,11 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.nav_dashboard -> {
+                supportFragmentManager.beginTransaction().replace(R.id.frame_container, DashboardFragment()).commit()
             }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+            R.id.nav_about -> {
+                supportFragmentManager.beginTransaction().replace(R.id.frame_container, AboutFragment()).commit()
             }
         }
 

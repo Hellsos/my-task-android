@@ -20,8 +20,6 @@ class WelcomeActivity : AppCompatActivity() {
     private lateinit var sliderAdapter: SliderAdapter
     private var mSlideShowDots: ArrayList<TextView> = arrayListOf()
 
-    private var mCurrentPage: Int = 0
-
     private lateinit var mDoneButon: Button
 
     private lateinit var sharedPreferencesService: SharedPreferencesService
@@ -73,6 +71,14 @@ class WelcomeActivity : AppCompatActivity() {
         if (this.mSlideShowDots.count() > 0) {
             this.mSlideShowDots.get(position).setTextColor(resources.getColor(R.color.colorWelcomeWhite))
         }
+
+        if (position == (sliderAdapter.count - 1)) {
+            mDoneButon.setEnabled(true)
+            mDoneButon.setTextColor(resources.getColor(R.color.colorWelcomeWhite))
+        } else {
+            mDoneButon.setEnabled(false)
+            mDoneButon.setTextColor(resources.getColor(R.color.colorWelcomeDisabled))
+        }
     }
 
     private val onPageChangeListener = object : ViewPager.OnPageChangeListener {
@@ -87,15 +93,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         override fun onPageSelected(position: Int) {
             addDotsIndicator(position)
-            mCurrentPage = position
 
-            if (mCurrentPage == (sliderAdapter.count - 1)) {
-                mDoneButon.setEnabled(true)
-                mDoneButon.setTextColor(resources.getColor(R.color.colorWelcomeWhite))
-            } else {
-                mDoneButon.setEnabled(false)
-                mDoneButon.setTextColor(resources.getColor(R.color.colorWelcomeDisabled))
-            }
         }
 
     }

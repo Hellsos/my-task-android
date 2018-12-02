@@ -14,7 +14,7 @@ class SharedPreferencesService(context: Context) {
         set(value) = sharedPreferences.edit().putBoolean(WELCOME_DONE, value).apply()
 
 
-    public fun clear() {
+    fun clear() {
         this.sharedPreferences.edit().clear().apply()
     }
 }
