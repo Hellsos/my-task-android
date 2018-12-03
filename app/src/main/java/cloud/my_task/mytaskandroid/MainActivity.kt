@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         this.userProvider = UserProvider()
         this.sharedPreferencesService = SharedPreferencesService(this)
 
-//        this.sharedPreferencesService.clear()
-
         val intent: Intent = if (this.sharedPreferencesService.welcomeDone) {
             Intent(this, DashboardActivity::class.java).apply {
                 // putExtra(msg, "abc")

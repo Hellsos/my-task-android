@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/app_bar_dashboard"
-        tools:context=".DashboardActivity">
+        tools:showIn="@layout/app_bar_dashboard">
 
-    <FrameLayout
+
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frame_container"/>
+            android:id="@+id/breadcrumb_layout"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            tools:layout_editor_absoluteY="8dp"
+            android:background="@drawable/shadow"
+            android:elevation="10dp"
+            tools:layout_editor_absoluteX="8dp">
 
-</android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent">
+
+            <Button
+                    android:text="Home - Dashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button"
+                    android:background="@android:color/transparent"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/ubuntu" android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
+        <TextView
+                android:text="Jan Rabcan"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textColor="@android:color/white"
+                android:paddingRight="10dp"
+                android:fontFamily="@font/ubuntu_bold"/>
+    </RelativeLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/swipe"
+            android:layout_height="match_parent">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/breadcrumb_layout"
+                android:id="@+id/frame_container"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>

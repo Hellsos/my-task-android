@@ -42,17 +42,14 @@ class WelcomeActivity : AppCompatActivity() {
 
         this.slideViewPager.addOnPageChangeListener(onPageChangeListener)
         this.mDoneButon.setOnClickListener {
-            callMe()
+            this.sharedPreferencesService.saveWelcomeDone(true)
+            startActivity(Intent(this, MainActivity::class.java).apply {
+
+            })
+            finish()
         }
     }
 
-    private fun callMe() {
-        this.sharedPreferencesService.welcomeDone = true
-        startActivity(Intent(this, MainActivity::class.java).apply {
-
-        })
-        finish()
-    }
 
     fun addDotsIndicator(position: Int) {
 

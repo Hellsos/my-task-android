@@ -23,27 +23,25 @@ class SliderAdapter : PagerAdapter {
 
         this.slideShowList.add(
             SlideShowItem(
-                R.drawable.welcome_img_1,
-                "Headline #1",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                R.drawable.down,
+                "Create Task",
+                "Create task and watch your progress."
             )
         )
         this.slideShowList.add(
             SlideShowItem(
-                R.drawable.welcome_img_2,
-                "Headline #2",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                R.drawable.down2,
+                "Set up Notifications",
+                "Set up notifications via Email, Phone and keep yourself updated."
             )
         )
         this.slideShowList.add(
             SlideShowItem(
-                R.drawable.welcome_img_3,
-                "Headline #3",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                R.drawable.share,
+                "Share with your friends",
+                "Add people to your friend list and share tasks with them."
             )
         )
-
-        println("aaaaaa" +this.slideShowList.count())
     }
 
 

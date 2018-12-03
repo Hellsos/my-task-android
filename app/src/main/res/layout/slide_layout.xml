@@ -5,13 +5,12 @@
 
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/welcome_img_1"
+            app:srcCompat="@drawable/down"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:id="@+id/slide_image"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="80dp"/>
+            android:layout_marginTop="80dp" android:layout_height="130dp"/>
     <TextView
             android:text="Heading"
             android:layout_width="match_parent"

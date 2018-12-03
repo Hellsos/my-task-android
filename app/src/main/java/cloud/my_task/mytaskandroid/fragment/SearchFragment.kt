@@ -5,13 +5,19 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.SearchEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.SearchView
+import android.widget.TextView
 
 import cloud.my_task.mytaskandroid.R
 import kotlinx.android.synthetic.main.fragment_about.*
+import kotlinx.android.synthetic.main.fragment_search.*
+import java.lang.Error
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,21 +27,20 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [AboutFragment.OnFragmentInteractionListener] interface
+ * [SearchFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [AboutFragment.newInstance] factory method to
+ * Use the [SearchFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class AboutFragment : Fragment(), View.OnClickListener {
+class SearchFragment : Fragment(), SearchView.OnQueryTextListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
-
-    private lateinit var flatIconLink: Button
-
+    private lateinit var searchView: SearchView
+    private lateinit var searchText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +55,15 @@ class AboutFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view: View = inflater.inflate(R.layout.fragment_about, container, false)
+        var view:View = inflater.inflate(R.layout.fragment_search, container, false)
 
-        flatIconLink = view.findViewById(R.id.flat_icon_link)
-        flatIconLink.setOnClickListener(this)
+        searchView = view.findViewById(R.id.search_view)
+        searchView.queryHint = "Search among (Users, Tasks, etc...)"
+        searchView.setOnQueryTextListener(this)
 
+        searchText = view.findViewById(R.id.search_text)
+
+        // Inflate the layout for this fragment
         return view
     }
 
@@ -100,12 +109,12 @@ class AboutFragment : Fragment(), View.OnClickListener {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment AboutFragment.
+         * @return A new instance of fragment SearchFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            AboutFragment().apply {
+            SearchFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
@@ -113,12 +122,13 @@ class AboutFragment : Fragment(), View.OnClickListener {
             }
     }
 
-    // TODO is not called
-    override fun onClick(v: View?) {
-        var intent: Intent = Intent()
-        intent.setAction(Intent.ACTION_VIEW)
-        intent.addCategory(Intent.CATEGORY_BROWSABLE)
-        intent.setData(Uri.parse("https://www.flaticon.com"))
-        startActivity(intent)
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        searchText.setText("Filtered: " + query)
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        searchText.setText("Filtering: " + newText)
+        return false
     }
 }
