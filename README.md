@@ -16,11 +16,16 @@
 
 ### ScreenShots
 
-<img src="screen1.png" width="250">
-<img src="screen1b.png" width="254">
+<p align="center">
+<img src="screen1.png" width="250"> <img src="screen1b.png" width="254">
+</p>
 
-<img src="screen2a.png" width="250">
-<img src="screen2b.png" width="250">
 
-<img src="screen3.png" width="250">
-<img src="screen4.png" width="250">
+<p align="center">
+<img src="screen2a.png" width="250"> <img src="screen2b.png" width="250">
+</p>
+
+
+<p align="center">
+<img src="screen3.png" width="250"> <img src="screen4.png" width="250">
+</p>
