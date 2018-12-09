@@ -25,13 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="Jan Rabcan"
+            android:text="Petr Novak"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="jan@rabcan.cz"
+            android:text="petr@novak.cz"
             android:id="@+id/textView"/>
 
 </LinearLayout>

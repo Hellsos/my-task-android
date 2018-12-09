@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+            <ImageView
+                    android:src="@drawable/down3"
+                    android:layout_width="89dp"
+                    android:layout_height="45dp" android:id="@+id/imageView4" android:layout_weight="1"
+                    android:paddingTop="5dp"/>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1">
+
+                <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/new_task_name"
+                        android:hint="Add a task"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+            <ImageView
+                    android:src="@drawable/document"
+                    android:layout_width="89dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/imageView7"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"/>
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1" android:textAlignment="textStart">
+
+                <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/new_task_description"
+                        android:hint="Description"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+            <ImageView
+                    android:src="@drawable/calendar"
+                    android:layout_width="89dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/imageView5"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"/>
+            <LinearLayout android:layout_weight="1"
+                          android:orientation="horizontal"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+
+                <Button
+                        android:text="Select Date"
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" android:id="@+id/select_date"/>
+                <Button
+                        android:text="Select Time"
+                        android:background="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" android:id="@+id/select_time"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+            <ImageView
+                    android:src="@drawable/map"
+                    android:layout_width="89dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/imageView6"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/container_frame_back"
+                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="center"
+                android:padding="5dp">
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/create_new_task"
+                    android:text="Create Task"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

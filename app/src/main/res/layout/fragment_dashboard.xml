@@ -6,47 +6,11 @@
                 android:id="@+id/dashboard_fragment"
                 android:background="@android:color/white">
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/imageView2"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/to_do_list"/>
-    <TextView
-            android:text="No Tasks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/textView3"
-            android:layout_marginTop="25dp"
-            android:layout_below="@+id/imageView2"
-            android:fontFamily="@font/ubuntu_bold"
-            android:textSize="24sp"/>
-    <TextView
-            android:text="It looks a little empty in here!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/textView4"
-            android:layout_marginTop="28dp"
-            android:layout_below="@+id/textView3"
-            android:fontFamily="@font/ubuntu_bold"
-            android:textSize="18sp"
-            android:textColor="@color/colorPrimaryDark"/>
-    <TextView
-            android:text="Let's create a new Task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_below="@id/textView4"
-            android:id="@+id/textView5"/>
-    <Button
-            android:text="Here"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/textView5"
-            android:id="@+id/button2"/>
+    <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/slideViewPagerContentDashboard">
+    </android.support.v4.view.ViewPager>
+
 </RelativeLayout>

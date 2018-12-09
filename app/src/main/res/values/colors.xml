@@ -8,7 +8,7 @@
     <color name="colorWelcomePrimary">#262938</color>
     <color name="colorWelcomePrimaryDark">#181A24</color>
     <color name="colorWelcomeAccent">#FF4081</color>
-    <color name="colorWelcomeWhite">#DDD</color>
-    <color name="colorWelcomeTransparentWhite">#AAA</color>
+    <color name="colorWelcomeWhite">#dddddd</color>
+    <color name="colorWelcomeTransparentWhite">#aaaaaa</color>
     <color name="colorWelcomeDisabled">#555</color>
 </resources>
