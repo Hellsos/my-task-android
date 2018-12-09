@@ -2,12 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="cloud.my_task.mytaskandroid">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="MyTask"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true">
+
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyAb0ZJo9NgtPsP0sfTO0GpJ4yt37C9V8Fo"/>
+
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/AppTheme">
@@ -26,10 +38,24 @@
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts"/>
 
+
+
+
         <activity
                 android:name=".DashboardActivity"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
     </application>
+    <uses-feature
+            android:glEsVersion="0x00020000"
+            android:required="true"/>
 
 </manifest>
