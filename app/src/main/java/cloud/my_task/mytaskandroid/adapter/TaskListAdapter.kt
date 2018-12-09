@@ -42,13 +42,13 @@ class TaskListAdapter internal constructor(context: Context) :
 
     internal fun setTasks(tasks: List<Task>) {
         downloadedTaskList = tasks
-        taskList = tasks
+        taskList = tasks.sortedWith(compareBy({ it.time }))
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(p0: TaskListHolder, p1: Int) {
-        val current: Task = taskList[p1]
-        if (current != null) {
+        if (!taskList.isEmpty()) {
+            val current: Task = taskList[p1]
             p0.taskName.text = current.name
             p0.taskDescription.text = current.description
             p0.taskUserName.text = "Petr Novak"
