@@ -1,17 +1,28 @@
 package cloud.my_task.mytaskandroid.fragment
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import cloud.my_task.mytaskandroid.R
-import cloud.my_task.mytaskandroid.adapter.SliderDashboardAdapter
-import cloud.my_task.mytaskandroid.adapter.TaskListAdapter
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,30 +32,30 @@ private const val ARG_PARAM2 = "param2"
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [DashboardFragment.OnFragmentInteractionListener] interface
+ * [MapFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [DashboardFragment.newInstance] factory method to
+ * Use the [MapFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class DashboardFragment : Fragment() {
+class MapFragment : Fragment(), OnMapReadyCallback {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var param1: Float? = null
+    private var param2: Float? = null
     private var listener: OnFragmentInteractionListener? = null
 
-    private lateinit var sliderDashboardAdapter: SliderDashboardAdapter
 
-    private lateinit var slideDashboardViewPager: ViewPager
+    var initial_latitude = -34.0
+    var initial_longitude = 151.0
+    var initial_marker = "Seed nay"
 
-
-    private lateinit var taskListAdapter: TaskListAdapter
+    private var locationManager: LocationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            param1 = it.getFloat(ARG_PARAM1)
+            param2 = it.getFloat(ARG_PARAM2)
         }
     }
 
@@ -52,18 +63,40 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val view = inflater.inflate(R.layout.map_fragment, container, false)
 
-        slideDashboardViewPager = view.findViewById(R.id.slideViewPagerContentDashboard)
 
-        sliderDashboardAdapter = SliderDashboardAdapter(view.context)
+        val mapFragment = childFragmentManager
+            .findFragmentById(R.id.fragment_map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
-        slideDashboardViewPager.adapter = sliderDashboardAdapter
 
-        return view;
+
+
+
+        return view
     }
 
+
+    override fun onMapReady(googleMap: GoogleMap) {
+
+        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+
+        googleMap.clear()
+
+        val googleCam = CameraPosition.builder()
+        googleCam.target(LatLng(49.8337, 18.1636))
+        googleCam.zoom(15.toFloat())
+        googleCam.bearing(0.toFloat())
+        googleCam.tilt(45.toFloat())
+
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(googleCam.build()), 10000, null)
+
+        val marker = MarkerOptions()
+        marker.position(LatLng(49.8337, 18.1636))
+        marker.title("VSB-TUO")
+        googleMap.addMarker(marker)
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
@@ -107,15 +140,15 @@ class DashboardFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment DashboardFragment.
+         * @return A new instance of fragment MapFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DashboardFragment().apply {
+        fun newInstance(param1: Float, param2: Float) =
+            MapFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putFloat(ARG_PARAM1, param1)
+                    putFloat(ARG_PARAM2, param2)
                 }
             }
     }
