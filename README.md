@@ -3,7 +3,7 @@
 ##### *Project to subject TAMZ2*
 
 ### Description
-   Application which offer to create Task and via API
+   Application which offer to create Task via API
 
 ### Features
 - Advanced GUI - Lists, Fragments
